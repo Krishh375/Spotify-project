@@ -1,0 +1,74 @@
+{
+	"name": "Dataflow_source_dataset4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "title.csv",
+				"folderPath": "sourcefolder",
+				"fileSystem": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Formatted Date",
+				"type": "String"
+			},
+			{
+				"name": "Summary",
+				"type": "String"
+			},
+			{
+				"name": "Precip Type",
+				"type": "String"
+			},
+			{
+				"name": "Temperature (C)",
+				"type": "String"
+			},
+			{
+				"name": "Apparent Temperature (C)",
+				"type": "String"
+			},
+			{
+				"name": "Humidity",
+				"type": "String"
+			},
+			{
+				"name": "Wind Speed (km/h)",
+				"type": "String"
+			},
+			{
+				"name": "Wind Bearing (degrees)",
+				"type": "String"
+			},
+			{
+				"name": "Visibility (km)",
+				"type": "String"
+			},
+			{
+				"name": "Loud Cover",
+				"type": "String"
+			},
+			{
+				"name": "Pressure (millibars)",
+				"type": "String"
+			},
+			{
+				"name": "Daily Summary",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,36 @@
+{
+	"name": "DS_ADLS2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_catalog": {
+				"type": "string"
+			},
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(\n    dataset().table_catalog, '/',\n    dataset().table_name, '/',\n    formatDateTime(utcnow(),'yyyy'), '/',\n    formatDateTime(utcnow(),'MM'), '/',\n    formatDateTime(utcnow(),'dd'), '/',\n    formatDateTime(utcnow(),'HH')\n)\n",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat('rl_sql001',dataset().table_catalog)",
+					"type": "Expression"
+				},
+				"fileSystem": "lake"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

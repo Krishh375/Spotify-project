@@ -1,0 +1,78 @@
+{
+	"name": "Dataflow_source_dataset2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Wine_quality_dataset",
+				"folderPath": "sample datasets ",
+				"fileSystem": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "type",
+				"type": "String"
+			},
+			{
+				"name": "fixed acidity",
+				"type": "String"
+			},
+			{
+				"name": "volatile acidity",
+				"type": "String"
+			},
+			{
+				"name": "citric acid",
+				"type": "String"
+			},
+			{
+				"name": "residual sugar",
+				"type": "String"
+			},
+			{
+				"name": "chlorides",
+				"type": "String"
+			},
+			{
+				"name": "free sulfur dioxide",
+				"type": "String"
+			},
+			{
+				"name": "total sulfur dioxide",
+				"type": "String"
+			},
+			{
+				"name": "density",
+				"type": "String"
+			},
+			{
+				"name": "pH",
+				"type": "String"
+			},
+			{
+				"name": "sulphates",
+				"type": "String"
+			},
+			{
+				"name": "alcohol",
+				"type": "String"
+			},
+			{
+				"name": "quality",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,46 @@
+{
+	"name": "dataset_title_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "title.csv",
+				"folderPath": "sourcefolder",
+				"fileSystem": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "TITLE_ID",
+				"type": "String"
+			},
+			{
+				"name": " TITLE",
+				"type": "String"
+			},
+			{
+				"name": " JOB_DIVISION",
+				"type": "String"
+			},
+			{
+				"name": " JOB_FAMILY",
+				"type": "String"
+			},
+			{
+				"name": " JOB_TITLE",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,19 @@
+{
+	"name": "CosmosDbNoSqlContainerdataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "productbuilderCosmos",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database_name": "customer_id"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "new_data"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,21 @@
+{
+	"name": "LS_SP_SQLSERVER",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "KRISHHNAPC\\SQLEXPRESS",
+			"database": "AdventureWorksDW2019",
+			"encrypt": "optional",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlNzk0NmI2Yy1hYWE0LTQ0MzEtODFmMi0xN2IxZWZmOTkyNGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-Onprem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

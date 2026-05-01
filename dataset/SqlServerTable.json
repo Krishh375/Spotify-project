@@ -1,0 +1,17 @@
+{
+	"name": "SqlServerTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DS_ASQLDB_PIPELINE_PARAMETER",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "west_pa"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

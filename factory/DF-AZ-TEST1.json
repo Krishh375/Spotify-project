@@ -1,0 +1,25 @@
+{
+	"name": "DF-AZ-TEST1",
+	"properties": {
+		"globalConfigurations": {
+			"PolicyValidationEnabled": "false",
+			"PipelineBillingEnabled": "true"
+		},
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "93fd685c-3e65-4801-b0e6-73789ea83ae2",
+		"tenantId": "16b3c013-d300-468d-ac64-7eda0820b6d3",
+		"userAssignedIdentities": {
+			"/subscriptions/98163876-b4d3-4128-ad45-c4c6a103c74c/resourcegroups/MI-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MI-SCUS": {
+				"clientId": "ecc7cfb0-3459-4bbb-b74c-e8f495dda064",
+				"principalId": "8d8266f9-2524-4b8a-a141-604c01335ded"
+			}
+		}
+	}
+}

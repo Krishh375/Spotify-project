@@ -1,0 +1,20 @@
+{
+	"name": "AzurePostgreSql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzurePostgreSql",
+		"version": "2.0",
+		"typeProperties": {
+			"server": "az-postgres-demo.postgres.database.azure.com",
+			"port": 5432,
+			"database": "testdemodatabase",
+			"sslMode": 3,
+			"authenticationType": "SystemAssignedManagedIdentity"
+		},
+		"connectVia": {
+			"referenceName": "vnetintegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

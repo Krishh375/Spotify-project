@@ -1,0 +1,18 @@
+{
+	"name": "Teradata_user",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Teradata",
+		"typeProperties": {
+			"server": "10.18.133.88",
+			"authenticationType": "Basic",
+			"username": "dbc",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhNWVkM2FhYi1kN2RiLTQ4MTMtODVhYi1iNDM4Y2ExYWRlMmQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-Onprem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

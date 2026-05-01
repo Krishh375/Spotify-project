@@ -1,0 +1,126 @@
+{
+	"name": "Dataflow_source_dataset7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "imdb_cleaned_20251005_143111.csv",
+				"folderPath": "sample datasets ",
+				"fileSystem": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "movie_title",
+				"type": "String"
+			},
+			{
+				"name": "director_name",
+				"type": "String"
+			},
+			{
+				"name": "title_year",
+				"type": "String"
+			},
+			{
+				"name": "imdb_score",
+				"type": "String"
+			},
+			{
+				"name": "rating_category",
+				"type": "String"
+			},
+			{
+				"name": "budget",
+				"type": "String"
+			},
+			{
+				"name": "gross",
+				"type": "String"
+			},
+			{
+				"name": "profit",
+				"type": "String"
+			},
+			{
+				"name": "roi",
+				"type": "String"
+			},
+			{
+				"name": "budget_category",
+				"type": "String"
+			},
+			{
+				"name": "is_profitable",
+				"type": "String"
+			},
+			{
+				"name": "duration",
+				"type": "String"
+			},
+			{
+				"name": "content_rating",
+				"type": "String"
+			},
+			{
+				"name": "primary_genre",
+				"type": "String"
+			},
+			{
+				"name": "language",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "num_voted_users",
+				"type": "String"
+			},
+			{
+				"name": "num_critic_for_reviews",
+				"type": "String"
+			},
+			{
+				"name": "num_user_for_reviews",
+				"type": "String"
+			},
+			{
+				"name": "movie_facebook_likes",
+				"type": "String"
+			},
+			{
+				"name": "budget_outlier",
+				"type": "String"
+			},
+			{
+				"name": "gross_outlier",
+				"type": "String"
+			},
+			{
+				"name": "profit_outlier",
+				"type": "String"
+			},
+			{
+				"name": "roi_outlier",
+				"type": "String"
+			},
+			{
+				"name": "imdb_score_outlier",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

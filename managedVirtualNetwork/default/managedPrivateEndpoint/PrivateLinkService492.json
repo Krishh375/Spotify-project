@@ -1,0 +1,10 @@
+{
+	"name": "PrivateLinkService492",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/98163876-b4d3-4128-ad45-c4c6a103c74c/resourceGroups/ONprem2SQL/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService",
+		"groupId": "",
+		"fqdns": [
+			"sqlvm.privatelink.centralus.cloudapp.azure.com"
+		]
+	}
+}

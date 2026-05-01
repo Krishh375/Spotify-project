@@ -1,0 +1,30 @@
+{
+	"name": "Stored_proc",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[myprocecdure]"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_SP_SQLSERVER",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-01T20:51:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,14 @@
+{
+	"name": "ServiceNow_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "ServiceNowV2",
+		"typeProperties": {
+			"endpoint": "https://dev318723.service-now.com/nav_to.do?uri=oauth_entity.do?sys_id=2f0b92ea93332210bd0eb4897bba102e%26sysparm_view=default",
+			"authenticationType": "Basic",
+			"username": "thatikondakrishna77@gmail.com",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQENGQkM1RDMwLUQ0OTgtNEVFMy1CMzkxLTQ2QTExRTdCMDAxNF9iZjI1YThmOS1lYzNkLTQ2MGEtODA2ZS00MGE5NGYzNGYzOTciDQp9"
+		}
+	}
+}

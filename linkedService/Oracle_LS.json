@@ -1,0 +1,16 @@
+{
+	"name": "Oracle_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Oracle",
+		"typeProperties": {
+			"connectionString": "host=KrishhNaPC;port=1521;sid=XE;user id=C##krishh",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2OTRkYjA1Yi0yNzRhLTRlYmMtOGNmOS0wMzVjOTE2NjQ3MmEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-Onprem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

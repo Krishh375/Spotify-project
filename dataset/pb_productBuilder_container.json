@@ -1,0 +1,19 @@
+{
+	"name": "pb_productBuilder_container",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "productbuilderCosmos",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database_name": "pb_productBuilder_container"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {},
+		"typeProperties": {
+			"collectionName": "contractSection"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

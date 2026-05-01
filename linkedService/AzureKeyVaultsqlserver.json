@@ -1,0 +1,11 @@
+{
+	"name": "AzureKeyVaultsqlserver",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://sqlserver-cred-onprem.vault.azure.net/"
+		}
+	}
+}

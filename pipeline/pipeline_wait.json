@@ -1,0 +1,22 @@
+{
+	"name": "pipeline_wait",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 123
+				}
+			}
+		],
+		"folder": {
+			"name": "Blob_event_trigger"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-12-03T10:04:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

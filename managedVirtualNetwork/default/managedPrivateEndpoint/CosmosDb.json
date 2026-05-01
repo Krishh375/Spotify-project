@@ -1,0 +1,10 @@
+{
+	"name": "CosmosDb",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/98163876-b4d3-4128-ad45-c4c6a103c74c/resourceGroups/RG-PROD/providers/Microsoft.DocumentDB/databaseAccounts/krishh-cosmos-db",
+		"groupId": "Sql",
+		"fqdns": [
+			"krishh-cosmos-db.documents.azure.com"
+		]
+	}
+}

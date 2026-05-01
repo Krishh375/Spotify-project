@@ -1,0 +1,129 @@
+{
+	"name": "dataflow_newbranch_parallel",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ADLS_Dataset_sink_dataflow",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS5",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS4",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_adls_dataflow_sink3",
+						"type": "DatasetReference"
+					},
+					"name": "sink4"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_sink_dataflow2",
+						"type": "DatasetReference"
+					},
+					"name": "sink5"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          diagnosis as string,",
+				"          radius_mean as string,",
+				"          texture_mean as string,",
+				"          perimeter_mean as string,",
+				"          area_mean as string,",
+				"          smoothness_mean as string,",
+				"          compactness_mean as string,",
+				"          concavity_mean as string,",
+				"          {concave points_mean} as string,",
+				"          symmetry_mean as string,",
+				"          fractal_dimension_mean as string,",
+				"          radius_se as string,",
+				"          texture_se as string,",
+				"          perimeter_se as string,",
+				"          area_se as string,",
+				"          smoothness_se as string,",
+				"          compactness_se as string,",
+				"          concavity_se as string,",
+				"          {concave points_se} as string,",
+				"          symmetry_se as string,",
+				"          fractal_dimension_se as string,",
+				"          radius_worst as string,",
+				"          texture_worst as string,",
+				"          perimeter_worst as string,",
+				"          area_worst as string,",
+				"          smoothness_worst as string,",
+				"          compactness_worst as string,",
+				"          concavity_worst as string,",
+				"          {concave points_worst} as string,",
+				"          symmetry_worst as string,",
+				"          fractal_dimension_worst as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink3",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink4",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink5"
+			]
+		}
+	}
+}

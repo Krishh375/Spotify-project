@@ -1,0 +1,167 @@
+{
+	"name": "TransformContractSectionViewBordereau_blob",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureDestinyGlobal",
+						"type": "DatasetReference"
+					},
+					"name": "AzureDestinyGlobal"
+				},
+				{
+					"dataset": {
+						"referenceName": "pb_productBuilder_container",
+						"type": "DatasetReference"
+					},
+					"name": "productBuilderContractSections"
+				},
+				{
+					"dataset": {
+						"referenceName": "pb_contractsection_container",
+						"type": "DatasetReference"
+					},
+					"name": "ContractSectionViewBordereau"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Jsonsink",
+						"type": "DatasetReference"
+					},
+					"name": "UpdateCosmosDB"
+				},
+				{
+					"dataset": {
+						"referenceName": "pb_contractsection_container",
+						"type": "DatasetReference"
+					},
+					"name": "DeleteItemsInCosmos"
+				}
+			],
+			"transformations": [
+				{
+					"name": "LookupContractSection"
+				},
+				{
+					"name": "LookupId"
+				},
+				{
+					"name": "DerivedColumns"
+				},
+				{
+					"name": "AggregateColumns"
+				},
+				{
+					"name": "SelectAttributes"
+				},
+				{
+					"name": "InsertOrUpdate"
+				},
+				{
+					"name": "UnusedData"
+				},
+				{
+					"name": "SelectItemKeys"
+				},
+				{
+					"name": "SetToDeleteUnusedData"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ContractSectionID as integer,",
+				"          LastUpdatedBy as string,",
+				"          IEContactID as integer,",
+				"          CanViewBordereauFlag as boolean",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     query: 'SELECT [eua].[ContractSectionID] ,[eua].[LastUpdatedBy] ,[eua].[IEContactID] ,[eub].[CanViewBordereauFlag] FROM [DestinyGlobal].[dbo].[FacExternalUserAssignment] AS [eua] INNER JOIN [DestinyGlobal].[dbo].[FacExternalUserBordereau] AS [eub] ON [eua].[FacExternalUserAssignmentID] = [eub].[FacExternalUserAssignmentID]',",
+				"     format: 'query') ~> AzureDestinyGlobal",
+				"source(output(",
+				"          typeId as string,",
+				"          cosmosContractSectionId as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     query: 'SELECT DISTINCT\\r\\n    f.typeId AS typeId,                     \\r\\n    f.contractSectionId AS cosmosContractSectionId\\r\\nFROM behaviors AS f\\r\\nWHERE f.type = \"contractSection\"\\r\\nAND f.isDeleted = false',",
+				"     format: 'documentQuery',",
+				"     systemColumns: false) ~> productBuilderContractSections",
+				"source(output(",
+				"          typeId as string,",
+				"          type as string,",
+				"          regions as (region as string, lastUpdatedBy as (email as string, userContextId as string))[],",
+				"          environments as string[],",
+				"          users as (ieContactId as integer, emailNotifications as integer[])[],",
+				"          lastUpdatedBy as (email as string, userContextId as string),",
+				"          isDeleted as boolean",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'document',",
+				"     systemColumns: false) ~> ContractSectionViewBordereau",
+				"AzureDestinyGlobal, productBuilderContractSections lookup(ContractSectionID == cosmosContractSectionId,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> LookupContractSection",
+				"LookupContractSection, ContractSectionViewBordereau lookup(productBuilderContractSections@typeId == ContractSectionViewBordereau@typeId,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> LookupId",
+				"LookupId derive(typeId = \"bordereau\",",
+				"          CanViewBordereauFlag = @(ieContactId=IEContactID,",
+				"          canViewBordereau=CanViewBordereauFlag)) ~> DerivedColumns",
+				"DerivedColumns aggregate(groupBy(typeId),",
+				"     users = collect(CanViewBordereauFlag)) ~> AggregateColumns",
+				"AggregateColumns select(skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> SelectAttributes",
+				"SelectAttributes alterRow(upsertIf(!isNull(typeId)),",
+				"     insertIf(isNull(users))) ~> InsertOrUpdate",
+				"ContractSectionViewBordereau, productBuilderContractSections exists(ContractSectionViewBordereau@typeId == productBuilderContractSections@typeId,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> UnusedData",
+				"UnusedData select(mapColumn(",
+				"          typeId",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> SelectItemKeys",
+				"SelectItemKeys alterRow(deleteIf(true())) ~> SetToDeleteUnusedData",
+				"InsertOrUpdate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     saveOrder: 1,",
+				"     mapColumn(",
+				"          typeId,",
+				"          users",
+				"     ),",
+				"     format: 'document') ~> UpdateCosmosDB",
+				"SetToDeleteUnusedData sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          typeId as string,",
+				"          type as string,",
+				"          regions as (region as string, lastUpdatedBy as (email as string, userContextId as string))[],",
+				"          environments as string[],",
+				"          users as (ieContactId as integer, emailNotifications as integer[])[],",
+				"          lastUpdatedBy as (email as string, userContextId as string),",
+				"          isDeleted as boolean",
+				"     ),",
+				"     deletable:true,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'document',",
+				"     partitionKey: ['/typeId'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> DeleteItemsInCosmos"
+			]
+		}
+	}
+}

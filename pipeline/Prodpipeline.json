@@ -1,0 +1,52 @@
+{
+	"name": "Prodpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute_Manager_pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline_manager",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute_on_selected_file_Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute_Manager_pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Only_selected_files",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Ansh_ADF_course"
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-03-02T18:34:39Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,88 @@
+{
+	"name": "pb_contractsection_container",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "productbuilderCosmos",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"Database_name": "pb_productBuilder_container"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDbSqlApiCollection",
+		"schema": {
+			"type": "object",
+			"properties": {
+				"typeId": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"regions": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"region": {
+								"type": "string"
+							},
+							"lastUpdatedBy": {
+								"type": "object",
+								"properties": {
+									"email": {
+										"type": "string"
+									},
+									"userContextId": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				},
+				"environments": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"users": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"ieContactId": {
+								"type": "integer"
+							},
+							"emailNotifications": {
+								"type": "array",
+								"items": {
+									"type": "integer"
+								}
+							}
+						}
+					}
+				},
+				"lastUpdatedBy": {
+					"type": "object",
+					"properties": {
+						"email": {
+							"type": "string"
+						},
+						"userContextId": {
+							"type": "null"
+						}
+					}
+				},
+				"isDeleted": {
+					"type": "boolean"
+				}
+			}
+		},
+		"typeProperties": {
+			"collectionName": "contractSection"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

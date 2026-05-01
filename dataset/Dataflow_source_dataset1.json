@@ -1,0 +1,154 @@
+{
+	"name": "Dataflow_source_dataset1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Breast_Cancer_dataset",
+				"folderPath": "sample datasets ",
+				"fileSystem": "democontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "diagnosis",
+				"type": "String"
+			},
+			{
+				"name": "radius_mean",
+				"type": "String"
+			},
+			{
+				"name": "texture_mean",
+				"type": "String"
+			},
+			{
+				"name": "perimeter_mean",
+				"type": "String"
+			},
+			{
+				"name": "area_mean",
+				"type": "String"
+			},
+			{
+				"name": "smoothness_mean",
+				"type": "String"
+			},
+			{
+				"name": "compactness_mean",
+				"type": "String"
+			},
+			{
+				"name": "concavity_mean",
+				"type": "String"
+			},
+			{
+				"name": "concave points_mean",
+				"type": "String"
+			},
+			{
+				"name": "symmetry_mean",
+				"type": "String"
+			},
+			{
+				"name": "fractal_dimension_mean",
+				"type": "String"
+			},
+			{
+				"name": "radius_se",
+				"type": "String"
+			},
+			{
+				"name": "texture_se",
+				"type": "String"
+			},
+			{
+				"name": "perimeter_se",
+				"type": "String"
+			},
+			{
+				"name": "area_se",
+				"type": "String"
+			},
+			{
+				"name": "smoothness_se",
+				"type": "String"
+			},
+			{
+				"name": "compactness_se",
+				"type": "String"
+			},
+			{
+				"name": "concavity_se",
+				"type": "String"
+			},
+			{
+				"name": "concave points_se",
+				"type": "String"
+			},
+			{
+				"name": "symmetry_se",
+				"type": "String"
+			},
+			{
+				"name": "fractal_dimension_se",
+				"type": "String"
+			},
+			{
+				"name": "radius_worst",
+				"type": "String"
+			},
+			{
+				"name": "texture_worst",
+				"type": "String"
+			},
+			{
+				"name": "perimeter_worst",
+				"type": "String"
+			},
+			{
+				"name": "area_worst",
+				"type": "String"
+			},
+			{
+				"name": "smoothness_worst",
+				"type": "String"
+			},
+			{
+				"name": "compactness_worst",
+				"type": "String"
+			},
+			{
+				"name": "concavity_worst",
+				"type": "String"
+			},
+			{
+				"name": "concave points_worst",
+				"type": "String"
+			},
+			{
+				"name": "symmetry_worst",
+				"type": "String"
+			},
+			{
+				"name": "fractal_dimension_worst",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

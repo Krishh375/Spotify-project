@@ -1,0 +1,6 @@
+{
+	"name": "SHIR-Onprem",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

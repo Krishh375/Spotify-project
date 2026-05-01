@@ -1,0 +1,90 @@
+{
+	"name": "Snowflakedataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "RECORD_ID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "ELEMENT_ID",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "TEXT",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "EMBEDDINGS",
+				"type": "ARRAY"
+			},
+			{
+				"name": "TYPE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "SYSTEM",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "LAYOUT_WIDTH",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "LAYOUT_HEIGHT",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "POINTS",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "URL",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "VERSION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DATE_CREATED",
+				"type": "TIMESTAMP_TZ"
+			},
+			{
+				"name": "DATE_PROCESSED",
+				"type": "TIMESTAMP_TZ"
+			},
+			{
+				"name": "DATE_MODIFIED",
+				"type": "TIMESTAMP_TZ"
+			},
+			{
+				"name": "SENT_FROM",
+				"type": "ARRAY"
+			},
+			{
+				"name": "SENT_TO",
+				"type": "ARRAY"
+			}
+		],
+		"typeProperties": {
+			"schema": "MY_SCHEMA",
+			"table": "ELEMENTS"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

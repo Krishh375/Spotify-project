@@ -1,0 +1,18 @@
+{
+	"name": "productbuilderCosmos",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"Database_name": {
+				"type": "string",
+				"defaultValue": "dataflow_bordereau"
+			}
+		},
+		"annotations": [],
+		"type": "CosmosDb",
+		"typeProperties": {
+			"accountEndpoint": "https://az-cosmos-new-database.documents.azure.com:443/",
+			"database": "@{linkedService().Database_name}"
+		}
+	}
+}

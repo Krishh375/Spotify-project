@@ -1,0 +1,24 @@
+{
+	"name": "destinationimmu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "destinationimmuls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "testimmutable",
+				"container": "destincontainerimmutable"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,19 @@
+{
+	"name": "LS_ASQL",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sqlk.database.windows.net",
+			"database": "testsql",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SystemAssignedManagedIdentity"
+		},
+		"connectVia": {
+			"referenceName": "vnetintegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "AzureDestinyGlobal",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AZDestinyGlobalDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "FacExternalUserAssignment"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

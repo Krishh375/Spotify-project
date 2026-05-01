@@ -1,0 +1,331 @@
+{
+	"name": "dataflow_test",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset1",
+						"type": "DatasetReference"
+					},
+					"name": "source"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset2",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset3",
+						"type": "DatasetReference"
+					},
+					"name": "source3"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset4",
+						"type": "DatasetReference"
+					},
+					"name": "source4"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset5",
+						"type": "DatasetReference"
+					},
+					"name": "source5"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset6",
+						"type": "DatasetReference"
+					},
+					"name": "source6"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataflow_source_dataset7",
+						"type": "DatasetReference"
+					},
+					"name": "source7"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ADLS_Dataset_sink_dataflow",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_sink_dataflow2",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_adls_dataflow_sink3",
+						"type": "DatasetReference"
+					},
+					"name": "sink3"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS4",
+						"type": "DatasetReference"
+					},
+					"name": "sink4"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS5",
+						"type": "DatasetReference"
+					},
+					"name": "sink5"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS6",
+						"type": "DatasetReference"
+					},
+					"name": "sink6"
+				},
+				{
+					"dataset": {
+						"referenceName": "Dataset_Sink_ADLS7",
+						"type": "DatasetReference"
+					},
+					"name": "sink7"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          id as string,",
+				"          diagnosis as string,",
+				"          radius_mean as string,",
+				"          texture_mean as string,",
+				"          perimeter_mean as string,",
+				"          area_mean as string,",
+				"          smoothness_mean as string,",
+				"          compactness_mean as string,",
+				"          concavity_mean as string,",
+				"          {concave points_mean} as string,",
+				"          symmetry_mean as string,",
+				"          fractal_dimension_mean as string,",
+				"          radius_se as string,",
+				"          texture_se as string,",
+				"          perimeter_se as string,",
+				"          area_se as string,",
+				"          smoothness_se as string,",
+				"          compactness_se as string,",
+				"          concavity_se as string,",
+				"          {concave points_se} as string,",
+				"          symmetry_se as string,",
+				"          fractal_dimension_se as string,",
+				"          radius_worst as string,",
+				"          texture_worst as string,",
+				"          perimeter_worst as string,",
+				"          area_worst as string,",
+				"          smoothness_worst as string,",
+				"          compactness_worst as string,",
+				"          concavity_worst as string,",
+				"          {concave points_worst} as string,",
+				"          symmetry_worst as string,",
+				"          fractal_dimension_worst as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source",
+				"source(output(",
+				"          type as string,",
+				"          {fixed acidity} as string,",
+				"          {volatile acidity} as string,",
+				"          {citric acid} as string,",
+				"          {residual sugar} as string,",
+				"          chlorides as string,",
+				"          {free sulfur dioxide} as string,",
+				"          {total sulfur dioxide} as string,",
+				"          density as string,",
+				"          pH as string,",
+				"          sulphates as string,",
+				"          alcohol as string,",
+				"          quality as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source2",
+				"source(output(",
+				"          age as string,",
+				"          sex as string,",
+				"          cp as string,",
+				"          trestbps as string,",
+				"          chol as string,",
+				"          fbs as string,",
+				"          restecg as string,",
+				"          thalach as string,",
+				"          exang as string,",
+				"          oldpeak as string,",
+				"          slope as string,",
+				"          ca as string,",
+				"          thal as string,",
+				"          target as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source3",
+				"source(output(",
+				"          {Formatted Date} as string,",
+				"          Summary as string,",
+				"          {Precip Type} as string,",
+				"          {Temperature (C)} as string,",
+				"          {Apparent Temperature (C)} as string,",
+				"          Humidity as string,",
+				"          {Wind Speed (km/h)} as string,",
+				"          {Wind Bearing (degrees)} as string,",
+				"          {Visibility (km)} as string,",
+				"          {Loud Cover} as string,",
+				"          {Pressure (millibars)} as string,",
+				"          {Daily Summary} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source4",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source5",
+				"source(output(",
+				"          color as string,",
+				"          director_name as string,",
+				"          num_critic_for_reviews as string,",
+				"          duration as string,",
+				"          director_facebook_likes as string,",
+				"          actor_3_facebook_likes as string,",
+				"          actor_2_name as string,",
+				"          actor_1_facebook_likes as string,",
+				"          gross as string,",
+				"          genres as string,",
+				"          actor_1_name as string,",
+				"          movie_title as string,",
+				"          num_voted_users as string,",
+				"          cast_total_facebook_likes as string,",
+				"          actor_3_name as string,",
+				"          facenumber_in_poster as string,",
+				"          plot_keywords as string,",
+				"          movie_imdb_link as string,",
+				"          num_user_for_reviews as string,",
+				"          language as string,",
+				"          country as string,",
+				"          content_rating as string,",
+				"          budget as string,",
+				"          title_year as string,",
+				"          actor_2_facebook_likes as string,",
+				"          imdb_score as string,",
+				"          aspect_ratio as string,",
+				"          movie_facebook_likes as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source6",
+				"source(output(",
+				"          movie_title as string,",
+				"          director_name as string,",
+				"          title_year as string,",
+				"          imdb_score as string,",
+				"          rating_category as string,",
+				"          budget as string,",
+				"          gross as string,",
+				"          profit as string,",
+				"          roi as string,",
+				"          budget_category as string,",
+				"          is_profitable as string,",
+				"          duration as string,",
+				"          content_rating as string,",
+				"          primary_genre as string,",
+				"          language as string,",
+				"          country as string,",
+				"          num_voted_users as string,",
+				"          num_critic_for_reviews as string,",
+				"          num_user_for_reviews as string,",
+				"          movie_facebook_likes as string,",
+				"          budget_outlier as string,",
+				"          gross_outlier as string,",
+				"          profit_outlier as string,",
+				"          roi_outlier as string,",
+				"          imdb_score_outlier as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source7",
+				"source sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1",
+				"source2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink2",
+				"source3 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink3",
+				"source4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink4",
+				"source5 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink5",
+				"source6 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink6",
+				"source7 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink7"
+			]
+		}
+	}
+}

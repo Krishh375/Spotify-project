@@ -1,0 +1,25 @@
+{
+	"name": "Parquet_ADLS1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "file1.parquet",
+				"folderPath": {
+					"value": "@concat('/root/parquet/copy1/',utcNow('yyyy-MM-dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "democontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
