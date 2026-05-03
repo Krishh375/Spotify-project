@@ -1,0 +1,12 @@
+{
+	"name": "max_updated_cdc_ds_spotify",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_onprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
