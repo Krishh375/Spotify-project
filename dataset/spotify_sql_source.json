@@ -1,0 +1,12 @@
+{
+	"name": "spotify_sql_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer_onprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
