@@ -1,5 +1,5 @@
 {
-	"name": "Parquet_spotify_sink",
+	"name": "Parquet_dynamic",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorageLS",
