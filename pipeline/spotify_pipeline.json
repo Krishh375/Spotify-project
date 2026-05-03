@@ -102,11 +102,12 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "empty_json_spotify",
+						"referenceName": "last_cdc_spotify",
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": "cdc"
+							"folder": "cdc",
+							"file": "cdc.json"
 						}
 					},
 					"firstRowOnly": false
@@ -127,6 +128,22 @@
 						"value": "@utcNow()",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "update_lastcdc",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
 				}
 			}
 		],

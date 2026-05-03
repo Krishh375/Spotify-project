@@ -1,5 +1,5 @@
 {
-	"name": "empty_json_spotify",
+	"name": "last_cdc_spotify",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorageLS",
