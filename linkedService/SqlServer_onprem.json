@@ -6,12 +6,12 @@
 		"type": "SqlServer",
 		"typeProperties": {
 			"server": "KRISHHNAPC",
-			"database": "WideWorldImportersDW",
+			"database": "spotify",
 			"encrypt": "optional",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "sa",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiNGI1NGJiNi01NzNjLTRjOTEtODdjNC0yZGUzM2U2N2JhZTAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5ZmE0NGU4YS1iYjg5LTRhM2MtYTA3Yi1jMjA1YTAwZWNlZGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SHIR-Onprem",
