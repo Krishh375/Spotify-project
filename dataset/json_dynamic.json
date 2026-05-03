@@ -1,5 +1,5 @@
 {
-	"name": "last_cdc_spotify",
+	"name": "json_dynamic",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorageLS",
