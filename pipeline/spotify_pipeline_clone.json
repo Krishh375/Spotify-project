@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.input",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "AzureSQL2Lake",
@@ -311,6 +315,38 @@
 							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Alert2mail",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-25.northcentralus.logic.azure.com:443/workflows/3693544dff154dc3889af77b1e2fa263/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=Zy1bCQWVE8a4EuIxY51_kPdm0ZfaobJlQY0-fxnf8bY",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"body": {
+						"value": "{\n    \"pipelinename\" : \"@{pipeline().Pipeline}\",\n    \"pipelineRunid\" : \"@{pipeline().RunId}\",\n    \"error\" : @{activity('update_last_cdc').output.error},\n    \"status\" : @{activity('update_last_cdc').output.status}\n}",
+						"type": "Expression"
+					}
 				}
 			}
 		],
