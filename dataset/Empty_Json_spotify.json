@@ -10,7 +10,8 @@
 				"type": "string"
 			},
 			"file": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "emptyjson.json"
 			}
 		},
 		"annotations": [],

@@ -109,7 +109,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "bronze",
-							"folder": "cdc",
+							"folder": "@concat(pipeline().parameters.table, '_', 'cdc')",
 							"file": "cdc.json"
 						}
 					},
@@ -243,7 +243,13 @@
 							"inputs": [
 								{
 									"referenceName": "Empty_Json_spotify",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"folder": {
+											"value": "@concat(pipeline().parameters.table, '_', 'cdc')",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
