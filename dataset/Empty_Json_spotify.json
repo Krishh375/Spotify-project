@@ -5,13 +5,27 @@
 			"referenceName": "AzureDataLakeStorageLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"folder": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "emptyjson.json",
-				"folderPath": "emptyjson",
+				"fileName": {
+					"value": "@dataset().file",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				},
 				"fileSystem": "bronze"
 			}
 		},
