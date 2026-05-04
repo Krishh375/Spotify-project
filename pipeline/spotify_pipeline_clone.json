@@ -344,7 +344,7 @@
 						"type": "IntegrationRuntimeReference"
 					},
 					"body": {
-						"value": "{\n    \"pipelinename\" : \"@{pipeline().Pipeline}\",\n    \"pipelineRunid\" : \"@{pipeline().RunId}\",\n    \"error\" : @{activity('update_last_cdc').output.error},\n    \"status\" : @{activity('update_last_cdc').output.status}\n}",
+						"value": "{\n    \"pipelinename\" : \"@{pipeline().Pipeline}\",\n    \"pipelineRunid\" : \"@{pipeline().RunId}\",\n    \"error\" : \"@{activity('update_last_cdc').output.error}\",\n    \"status\" : \"@{activity('update_last_cdc').output.status}\"\n}",
 						"type": "Expression"
 					}
 				}
