@@ -1,0 +1,19 @@
+{
+	"name": "loop_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "product-price-maxbuyquantity"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
